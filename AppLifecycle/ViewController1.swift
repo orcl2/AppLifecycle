@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  ViewControllerLifecycle
-//
-//  Created by Angela Yu on 28/10/2019.
-//  Copyright © 2019 Angela Yu. All rights reserved.
-//
-
 import UIKit
 
 class ViewController1: UIViewController {
@@ -35,7 +27,10 @@ class ViewController1: UIViewController {
         print("VC1 viewDidDisappear Called")
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destinationVC = segue.destination as? ViewController2 else { return }
+        destinationVC.label.text = "Hello"
+    }
     
 
 }
